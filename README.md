@@ -12,4 +12,4 @@ in browser:  http://localhost:8080 \
 Admin area: http://localhost:8080/admin.php \
 X-Cart source code: ./php/src \
 X-Cart admin user: admin@example.com / master \
-phpMyAdmin: http://localhost:8765/ \
+phpMyAdmin: http://localhost:8765/ 
