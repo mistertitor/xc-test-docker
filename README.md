@@ -2,10 +2,10 @@
 Environment for candidats.
 
 ## Installation
-Clone repo to your machine.
-Docker and Docker-compose need to be installed.
-Run command
-  docker-compose up
+Clone repo to your machine.\
+Docker and Docker-compose need to be installed.\
+Run command \
+  docker-compose up \
   
 After precess is completed the environment is ready to use.
 in browser:  http://localhost:8080
