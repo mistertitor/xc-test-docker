@@ -1,0 +1,39 @@
+version: '3.7'
+
+services:
+  php:
+    build:
+      ./php
+    volumes:
+      - ./php/src/classes:/var/www/html/classes
+      - ./php/src/skins:/var/www/html/skins
+      - ./php/src/etc:/var/www/html/etc
+      - ./httpd/ports.conf:/etc/apache2/ports.conf
+      - ./httpd/000-default.conf:/etc/apache2/sites-enabled/000-default.conf
+    ports:
+      - 8080:8080
+    depends_on:
+      - mariadb
+    links:
+      - mariadb
+
+  mariadb:
+    image: mariadb:latest
+    restart: always
+    volumes:
+      - ./mariadb:/var/lib/mysql
+      - ./php/src/seed/seed.sql:/docker-entrypoint-initdb.d/seed.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: xcart54
+  
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links: 
+      - mariadb:db
+    ports:
+      - 8765:80
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+    depends_on:
+      - mariadb
