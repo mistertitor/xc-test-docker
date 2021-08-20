@@ -7,11 +7,12 @@ services:
     volumes:
       - ./php/src/classes:/var/www/html/classes
       - ./php/src/skins:/var/www/html/skins
+      - ./php/src/var/log:/var/www/html/var/log
       - ./php/src/etc:/var/www/html/etc
       - ./httpd/ports.conf:/etc/apache2/ports.conf
       - ./httpd/000-default.conf:/etc/apache2/sites-enabled/000-default.conf
     ports:
-      - 8080:8080
+      - "8088:8080"
     depends_on:
       - mariadb
     links:
@@ -32,7 +33,7 @@ services:
     links: 
       - mariadb:db
     ports:
-      - 8765:80
+      - "8765:80"
     environment:
       MYSQL_ROOT_PASSWORD: secret
     depends_on:
