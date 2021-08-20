@@ -85,8 +85,8 @@ servers=
 ;   https://www.yourhost.com
 ;
 [host_details]
-http_host = "localhost:8080"
-https_host = "localhost:8080"
+http_host = "localhost:8088"
+https_host = "localhost:8088"
 web_dir = ""
 domains = ""
 admin_self = "admin.php"
